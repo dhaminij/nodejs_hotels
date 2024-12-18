@@ -4,8 +4,13 @@ const db = require('./db')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+const logRequest = (req,res,next)=>{
+    console.log(`[${new Date().toLocaleString()}] Request made to : ${req.originalUrl}`);
+    next();
+}
+app.use(logRequest)
 app.get('/',function(req,res){
-    console.log('welcoe to hotel');
+    res.send('welcome to hotel');
 })
 
 const personRoutes = require('./routes/personRoutes')
