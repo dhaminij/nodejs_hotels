@@ -3,11 +3,6 @@ const app = express()
 const db = require('./db')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-const Person = require('./models/Person')
-const menuItem = require('./models/menu')
-const MenuItem = require('./models/menu')
-const error = require('mongoose/lib/error')
-
 
 app.get('/',function(req,res){
     console.log('welcoe to hotel');
